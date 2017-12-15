@@ -95,13 +95,13 @@
 
 
 // ACCESSING TEXT ONLY 
-var firstItem = document.getElementById("one");
-var showTextContent = firstItem.textContent;
-var showInnerText = firstItem.innerText;
+// var firstItem = document.getElementById("one");
+// var showTextContent = firstItem.textContent;
+// var showInnerText = firstItem.innerText;
 
 
-var msg = "<p>textContent: " + showTextContent + "</p>";
-msg += "<p>innerText: " + showInnerText + "</p>";
-var el = document.getElementById("scriptResults");
+// var msg = "<p>textContent: " + showTextContent + "</p>";
+// msg += "<p>innerText: " + showInnerText + "</p>";
+// var el = document.getElementById("scriptResults");
 
-firstItem.textContent = "sourdough bread";
+// firstItem.textContent = "sourdough bread";
