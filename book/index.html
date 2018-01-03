@@ -12,15 +12,78 @@
 	<!-- <div id="page">
 		<h1 id="header">List</h1> -->
 	
-		
+<!-- 14. Grid Based Layout using ES860 -->
+<div class="container_12 clearfix">
+		<div id="header" class="grid_12">
+			<h1>Logo</h1>
+			<div id="nav">
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">Products</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="feature" class="grid_12">
+			<p>Feature</p>
+		</div>
+		<div class="article grid_4">
+			<p>Column One</p>
+		</div>
+		<div class="article grid_4">
+			<p>Column Two</p>
+		</div>
+		<div class="article grid_4">
+			<p>Column Three</p>
+		</div>
+		<div id="footer" class="grid_12">
+			<p>© Copyright 2011</p>
+		</div>
+	</div>
+	<!-- .container_12 -->
 
+
+
+
+		<!-- 13. Liquid Layout -->
+		<!-- <div id="header">
+				<h1>Logo</h1>
+				<div id="nav">
+					<ul>
+						<li><a href="">Home</a></li>
+						<li><a href="">Products</a></li>
+						<li><a href="">Services</a></li>
+						<li><a href="">About</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+				<div id="feature">
+					<p>Feature</p>
+				</div>
+				<div class="article column1">
+					<p>Column One</p>
+				</div>
+				<div class="article column2">
+					<p>Column Two</p>
+				</div>
+				<div class="article column3">
+					<p>Column Three</p>
+				</div>
+			</div>
+			<div id="footer">
+				<p>© Copyright 2011</p>
+			</div> -->
 
 
 
 
 		<!-- HTML CSS book starts here -->
 <!--12. Fixed layout -->
-<div id="header">
+<!-- <div id="header">
 		<h1>Logo</h1>
 		<div id="nav">
 			<ul>
@@ -48,7 +111,7 @@
 	</div>
 	<div id="footer">
 		<p>© Copyright 2011</p>
-	</div>
+	</div> -->
 
 
 
@@ -207,8 +270,65 @@
 </div> -->
 
 <style>
-/* 12. Fixed Layout */
+
+/* 14. Grid based Layout */
+
 * {
+				font-family: Arial, Verdana, sans-serif;
+				color: #665544;
+				text-align: center;}
+			#nav, #feature, .article, #footer {
+				background-color: #efefef;
+				margin-top: 20px;
+				padding: 10px 0px 5px 0px;}
+			#feature, .article {
+				height: 100px;}
+			li {
+				display: inline;
+				padding: 5px;}
+
+				div.article.grid_4{
+					height:300px;
+					width: 40%;
+					display: inline-block;
+
+					margin: 10px 2px 3px 2px;;
+
+				}
+				div#footer.grid_12{
+					clear:both;
+				}
+/* 13.Liqioud Layout */
+
+/* * {
+				font-family: Arial, Verdana, sans-serif;
+				color: #665544;
+				text-align: center;}
+			body {
+				width: 90%;
+				margin: 0 auto;}
+			#content {
+				overflow: auto;}
+			#nav, #feature, #footer {
+				margin: 1%;}
+			.column1, .column2, .column3 {
+				width: 31.3%;
+				float: left;
+				margin: 1%;}
+			.column3 {
+				margin-right: 0%;}
+			li {
+				display: inline;
+				padding: 0.5em;}
+			#nav, #footer {
+				background-color: #efefef;
+				padding: 0.5em 0;}
+			#feature, .article {
+				height: 10em;
+				margin-bottom: 1em;
+				background-color: #efefef;} */
+/* 12. Fixed Layout */
+/* * {
 				font-family: Arial, Verdana, sans-serif;
 				color: #665544;
 				text-align: center;}
@@ -233,7 +353,7 @@
 
 
 
-
+ */
 
 /* 11. Styling Fieldsets */
 
