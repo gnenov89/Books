@@ -1,3 +1,33 @@
+
+//13. Check for an attribute and get its values
+
+var firstItem = document.getElementById('one'); // Get first list item 
+if (firstItem.hasAttribute('class')) {          // If it has class attribute
+  var attr = firstItem.getAttribute('class');   // Get the attribute
+
+  // Add the value of the attribute after the list
+  var el = document.getElementById('scriptResults');
+  el.innerHTML = '<p>The first item has a class name: ' + attr + '</p>';
+
+}
+
+
+
+
+// 12.Accesing textnodes
+
+var itemTwo = document.getElementById('two');  // Get second list item
+
+var elText  = itemTwo.firstChild.nodeValue;    // Get its text content
+
+elText = elText.replace('kale', 'bananas');  // Change pine nuts to kale
+
+itemTwo.firstChild.nodeValue = elText;         // Update the list item
+	
+
+
+
+
 // select the element and store it in an id
 
 
