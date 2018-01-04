@@ -1,15 +1,29 @@
 
+// 14. Change attributes
+
+
+// var firstItem = document.getElementById('one'); // Get the first item
+// firstItem.className = 'not';               // Change its class attribute
+
+// var fourthItem = document.getElementsByTagName('li').item(3);// Get fourth item
+// // NOTE: The following line should say fourthItem (not el2)
+// fourthItem.setAttribute('class', 'hot');       // Add an attribute to it
+
+
+
+
+
 //13. Check for an attribute and get its values
 
-var firstItem = document.getElementById('one'); // Get first list item 
-if (firstItem.hasAttribute('class')) {          // If it has class attribute
-  var attr = firstItem.getAttribute('class');   // Get the attribute
+// var firstItem = document.getElementById('one'); // Get first list item 
+// if (firstItem.hasAttribute('class')) {          // If it has class attribute
+//   var attr = firstItem.getAttribute('class');   // Get the attribute
 
-  // Add the value of the attribute after the list
-  var el = document.getElementById('scriptResults');
-  el.innerHTML = '<p>The first item has a class name: ' + attr + '</p>';
+//   // Add the value of the attribute after the list
+//   var el = document.getElementById('scriptResults');
+//   el.innerHTML = '<p>The first item has a class name: ' + attr + '</p>';
 
-}
+// }
 
 
 
