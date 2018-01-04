@@ -1,5 +1,57 @@
+// **********************CHAPTER 6- EVENTS ***************************************
+
+// 3.EVENT HADLERS WITH PARAMTERS///
+var elUsername = document.getElementById('username');   // Username input
+var elMsg      = document.getElementById('feedback');   // Error msg element
+
+function checkUsername(minLength) {                     // Declare function
+  if (elUsername.value.length < minLength) {            // If username too short
+    // Set the error message
+    elMsg.innerHTML = 'Username must be ' + minLength + ' characters or more';
+  } else {                                             // Otherwise
+    elMsg.innerHTML = '';                              // Clear msg
+  }
+}
+
+elUsername.addEventListener('blur', function() {        // When it loses focus
+  checkUsername(5);                                     // Pass argument here
+}, false);
 
 
+
+
+
+// 2. EVENT HANDLERS ///
+
+// function checkUsername() {                             // Declare function
+//     var elMsg = document.getElementById('feedback');     // Get feedback element
+//     if (this.value.length < 5) {                         // If username too short
+//       elMsg.textContent = 'Username must be 5 characters or more'; // Set msg
+//     } else {                                             // Otherwise
+//       elMsg.textContent = '';                            // Clear msg
+//     }
+//   }
+  
+//   var elUsername = document.getElementById('username');  // Get username input
+//   // When it loses focus call checkUsername()
+//   elUsername.addEventListener('blur', checkUsername, false);
+
+
+
+
+
+// 1.EVENT LISTENERS
+// function checkUsername() {                            // Declare function
+//     var elMsg = document.getElementById('feedback');    // Get feedback element
+//     if (this.value.length < 5) {                        // If username too short
+//       elMsg.textContent = 'Username must be 5 characters or more';  // Set msg
+//     } else {                                            // Otherwise
+//       elMsg.textContent = '';                           // Clear message
+//     }
+//   }
+  
+//   var elUsername = document.getElementById('username'); // Get username input
+//   elUsername.onblur = checkUsername;  // When it loses focus call checkuserName()
 
 // 16.Example DOM
 
@@ -18,20 +70,20 @@
 // newItemFirst.appendChild(newTextFirst);                            // Add text node to element
 // list.insertBefore(newItemFirst, list.firstChild);                  // Add element to list
 
-var listItems = document.querySelectorAll('li');                   // All <li> elements
+// var listItems = document.querySelectorAll('li');                   // All <li> elements
 
 // ADD A CLASS OF COOL TO ALL LIST ITEMS
-var i;                                                             // Counter variable
-for (i = 0; i < listItems.length; i++) {                           // Loop through elements
-  listItems[i].className = 'hot';                                 // Change class to cool
-}
+// var i;                                                             // Counter variable
+// for (i = 0; i < listItems.length; i++) {                           // Loop through elements
+//   listItems[i].className = 'hot';                                 // Change class to cool
+// }
 
 // ADD NUMBER OF ITEMS IN THE LIST TO THE HEADING
-var heading = document.querySelector('h2');                        // h2 element
-var headingText = heading.firstChild.nodeValue;                    // h2 text
-var totalItems = listItems.length;                                 // No. of <li> elements
-var newHeading =  headingText + '<span>' + totalItems + '</span>'; // Content
-heading.innerHTML = newHeading;                                    // Update h2 using innerHTML (not textContent) because it contains markup
+// var heading = document.querySelector('h2');                        // h2 element
+// var headingText = heading.firstChild.nodeValue;                    // h2 text
+// var totalItems = listItems.length;                                 // No. of <li> elements
+// var newHeading =  headingText + '<span>' + totalItems + '</span>'; // Content
+// heading.innerHTML = newHeading;                                    // Update h2 using innerHTML (not textContent) because it contains markup
 
 
 
