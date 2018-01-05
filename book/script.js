@@ -1,27 +1,70 @@
 // **********************CHAPTER 6- EVENTS ***************************************
+// 9. Determening position
+
+// var sx = document.getElementById('sx');        // Element to hold screenX
+// var sy = document.getElementById('sy');        // Element to hold screenY
+// var px = document.getElementById('px');        // Element to hold pageX
+// var py = document.getElementById('py');        // Element to hold pageY
+// var cx = document.getElementById('cx');        // Element to hold clientX
+// var cy = document.getElementById('cy');        // Element to hold clientY
+
+// function showPosition(event) {                 // Declare function
+//   sx.value = event.screenX;                    // Update element with screenX
+//   sy.value = event.screenY;                    // Update element with screenY
+//   px.value = event.pageX;                      // Update element with pageX
+//   py.value = event.pageY;                      // Update element with pageY
+//   cx.value = event.clientX;                    // Update element with clientX
+//   cy.value = event.clientY;                    // Update element with clientY
+// }
+
+// var el = document.getElementById('body');      // Get body Element
+// el.addEventListener('mousemove', showPosition, false); // Move updates position
+
+
+
+// 8. Click
+
+// Create the HTML for the message
+// var msg = '<div class=\"header\"><a id=\"close\" href="#">close X</a></div>';
+// msg += '<div><h2>System Maintenance</h2>';
+// msg += 'Our servers are being updated between 3 and 4 a.m. ';
+// msg += 'During this time, there may be minor disruptions to service.</div>';
+
+// var elNote = document.createElement('div');       // Create a new element
+// elNote.setAttribute('id', 'note');                // Add an id of note
+// elNote.innerHTML = msg;                           // Add the message
+// document.body.appendChild(elNote);                // Add it to the page
+
+// function dismissNote() {                          // Declare function
+//   document.body.removeChild(elNote);              // Remove the note
+// }
+
+// var elClose = document.getElementById('close');   // Get the close button
+// elClose.addEventListener('click', dismissNote, false);// Click close-clear note
+
 
 // 7. Focus and blur
-function checkUsername() {                        // Declare function
-    var username = el.value;                        // Store username in variable
-    if (username.length < 5) {                      // If username < 5 characters
-      elMsg.className = 'warning';                  // Change class on message
-      elMsg.textContent = 'Not long enough, yet...';// Update message
-    } else {                                        // Otherwise
-      elMsg.textContent = '';                       // Clear the message
-    }
-  }
+// function checkUsername() {                        // Declare function
+//     var username = el.value;                        // Store username in variable
+//     if (username.length < 5) {                      // If username < 5 characters
+//       elMsg.className = 'warning';                  // Change class on message
+//       elMsg.textContent = 'Not long enough, yet...';// Update message
+//     } else {                                        // Otherwise
+//       elMsg.textContent = '';                       // Clear the message
+//     }
+//   }
   
-  function tipUsername() {                          // Declare function
-    elMsg.className = 'tip';                        // Change class for message
-    elMsg.innerHTML = 'Username must be at least 5 characters'; // Add message
-  }
+//   function tipUsername() {                          // Declare function
+//     elMsg.className = 'tip';                        // Change class for message
+//     elMsg.innerHTML = 'Username must be at least 5 characters'; // Add message
+//   }
   
-  var el = document.getElementById('username');     // Username input
-  var elMsg = document.getElementById('feedback');  // Element to hold message
+//   var el = document.getElementById('username');     // Username input
+//   var elMsg = document.getElementById('feedback');  // Element to hold message
   
-  // When the username input gains / loses focus call functions above:
-  el.addEventListener('focus', tipUsername, false); // focus call tipUsername()
-  el.addEventListener('blur', checkUsername, false);// blur call checkUsername()
+//   // When the username input gains / loses focus call functions above:
+//   el.addEventListener('focus', tipUsername, false); // focus call tipUsername()
+//   el.addEventListener('blur', checkUsername, false);// blur call checkUsername()
   
   /* LONGER VERSION WITH IE8 (and lower) compatibility
   
