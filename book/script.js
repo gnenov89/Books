@@ -1,21 +1,50 @@
 // **********************CHAPTER 6- EVENTS ***************************************
+
+// 11.Form
+// var elForm, elSelectPackage, elPackageHint, elTerms, elTermsHint; // Declare variables
+// elForm          = document.getElementById('formSignup');          // Store elements
+// elSelectPackage = document.getElementById('package');
+// elPackageHint   = document.getElementById('packageHint');
+// elTerms         = document.getElementById('terms');
+// elTermsHint     = document.getElementById('termsHint');
+
+// function packageHint() {                                 // Declare function
+//   var pack = this.options[this.selectedIndex].value;     // Get selected option
+//   if (pack === 'monthly') {                              // If monthly package
+//     elPackageHint.innerHTML = 'Save $10 if you pay for 1 year!';//Show this msg
+//   } else {                                               // Otherwise
+//     elPackageHint.innerHTML = 'Wise choice!';            // Show this message
+//   }
+// }
+
+// function checkTerms(event) {                             // Declare function
+//   if (!elTerms.checked) {                                // If checkbox ticked
+//     elTermsHint.innerHTML = 'You must agree to the terms.'; // Show message
+//     event.preventDefault();                              // Don't submit form
+//   }
+// }
+
+// //Create event listeners: submit calls checkTerms(), change calls packageHint()
+// elForm.addEventListener('submit', checkTerms, false);
+// elSelectPackage.addEventListener('change', packageHint, false);
+
 // 10. Which key is pressed 
 // This example has been updated to fire on the keyup event instead of keypress 
 // (on the last line in the event listener) as new text is not in the textarea until the key is released
 
-var el;                                                    // Declare variables
+// var el;                                                    // Declare variables
 
-function charCount(e) {                                    // Declare function
-  var textEntered, charDisplay, counter, lastkey;          // Declare variables
-  textEntered = document.getElementById('message').value;  // User's text
-  charDisplay = document.getElementById('charactersLeft'); // Counter element
-  counter = (180 - (textEntered.length));                  // Num of chars left
-  charDisplay.textContent = counter;                       // Show chars left
-  lastkey = document.getElementById('lastKey');            // Get last key elem
-  lastkey.textContent = 'Last key in ASCII code: ' + e.keyCode; // Create msg 
-}
-el = document.getElementById('message');                   // Get msg element
-el.addEventListener('keyup', charCount, false);// keyup -call charCount()
+// function charCount(e) {                                    // Declare function
+//   var textEntered, charDisplay, counter, lastkey;          // Declare variables
+//   textEntered = document.getElementById('message').value;  // User's text
+//   charDisplay = document.getElementById('charactersLeft'); // Counter element
+//   counter = (180 - (textEntered.length));                  // Num of chars left
+//   charDisplay.textContent = counter;                       // Show chars left
+//   lastkey = document.getElementById('lastKey');            // Get last key elem
+//   lastkey.textContent = 'Last key in ASCII code: ' + e.keyCode; // Create msg 
+// }
+// el = document.getElementById('message');                   // Get msg element
+// el.addEventListener('keyup', charCount, false);// keyup -call charCount()
 
 
 
