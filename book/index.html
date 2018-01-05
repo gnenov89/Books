@@ -10,10 +10,37 @@
 </head>
 <body>
 <!-- **************************Back to JavaScript************* -->
+<!-- 5. Using event delegation -->
+<ul id="shoppingList">
+        <li class="complete"><a href="itemDone.php?id=1"><em>fresh</em> figs</a></li>
+        <li class="complete"><a href="itemDone.php?id=2">pine nuts</a></li>
+        <li class="complete"><a href="itemDone.php?id=3">honey</a></li>
+        <li class="complete"><a href="itemDone.php?id=4">balsamic vinegar</a></li>
+      </ul>
+
+
+
+<!-- 4.Scroll down for Event objects -->
+
+<!-- <div id="page">
+		<h1>List King</h1>
+		<h2>New Account</h2>
+		<form method="post" action="http://www.example.org/register">
+  
+		  <label for="username">Create a username: </label>
+		  <input type="text" id="username"><div id="feedback">Username must be 5 characters or more</div>
+  
+		  <label for="password">Create a password: </label>
+		  <input type="password" id="password"><div id="feedback"></div>
+  
+		  <input type="submit" value="sign up">
+  
+		</form>
+	  </div> -->
 
 <!-- 3.EVENT LISTENERS WITH PARAMETERS -->
 
-<div id="page">
+<!-- <div id="page">
 		<h1>List King</h1>
 		<h2>New Account</h2>
 		<form method="post" action="http://www.example.org/register">
@@ -27,10 +54,27 @@
 		  <input type="submit" value="sign up">
   
 		</form>
-	  <div>
+	  <div> -->
+<!-- 3.Event Object  -->
+<!-- <input type="button" value="Click me" id="btn"
+	   onclick="displayEventDetails(event)"
+	   onmouseover="displayEventDetails(event)"
+       onmouseout="displayEventDetails(event)"
+       />
+<br /><br />
+<div id="resultDiv"></div>
+<script>
+	function displayEventDetails(event)
+    {
+        var eventDetails = "Event = " + event.type + "<br/> X = " + event.clientX
+                           + "<br/>Y = " + event.clientY + "<br/>Target Type = "
+                           + event.target.type + "<br/>Target Tag Name = "
+                           + event.target.tagName;
 
+        document.getElementById("resultDiv").innerHTML = eventDetails;
+    }
 
-
+</script> -->
 
 <!-- 2.Event LISTENERS -->
 <!-- <div id="page">
@@ -1156,7 +1200,8 @@ li.coming-soon{ */
 		</form> -->
 
 		<script src="script.js"></script>
-		
+	
+		</script>
 	</div>
 
 

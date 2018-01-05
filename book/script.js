@@ -1,21 +1,100 @@
 // **********************CHAPTER 6- EVENTS ***************************************
-
-// 3.EVENT HADLERS WITH PARAMTERS///
-var elUsername = document.getElementById('username');   // Username input
-var elMsg      = document.getElementById('feedback');   // Error msg element
-
-function checkUsername(minLength) {                     // Declare function
-  if (elUsername.value.length < minLength) {            // If username too short
-    // Set the error message
-    elMsg.innerHTML = 'Username must be ' + minLength + ' characters or more';
-  } else {                                             // Otherwise
-    elMsg.innerHTML = '';                              // Clear msg
-  }
+// 5. Using event Delegation
+// Set up event listeners to call itemDone() on click
+var el = document.getElementById('shoppingList');// Get shopping list
+if (el.addEventListener) {                       // If event listeners work
+  el.addEventListener('click', function(e) {     // Add listener on click
+    itemDone(e);                                 // It calls itemDone()
+  }, false);                                     // Use bubbling phase for flow
+} else {                                         // Otherwise
+  el.attachEvent('onclick', function(e) {        // Use old IE model: onclick
+    itemDone(e);                                 // Call itemDone()
+  });
 }
 
-elUsername.addEventListener('blur', function() {        // When it loses focus
-  checkUsername(5);                                     // Pass argument here
-}, false);
+function getTarget(e) {                          // Declare function
+    if (!e) {                                      // If there is no event object
+      e = window.event;                            // Use old IE event object
+    }
+    return e.target || e.srcElement;               // Get the target of event
+  }
+  
+  function itemDone(e) {                           // Declare function
+    // Remove item from the list
+    var target, elParent, elGrandparent;           // Declare variables
+    target = getTarget(e);                         // Get the item clicked link
+    elParent = target.parentNode;
+    elGrandparent = target.parentNode.parentNode;
+    elGrandparent.removeChild(elParent);
+    if ( target.nodeName.toLowerCase() == "a" ) {  // If user clicked on an a element
+        elListItem = target.parentNode;              // Get its li element
+        elList = elListItem.parentNode;              // Get the ul element    
+        elList.removeChild(elListItem);              // Remove list item from list
+    }
+
+    if ( target.nodeName.toLowerCase() == "em" ) { // If the user clicked on an em element
+        elListItem = target.parentNode.parentNode;   // Get its li element
+        elList = elListItem.parentNode;              // Get the ul element
+        elList.removeChild(elListItem);              // Remove list item from list
+      }
+    
+      // Prevent the link from taking you elsewhere
+      if (e.preventDefault) {                        // If preventDefault() works
+        e.preventDefault();                          // Use preventDefault() 
+      } else {                                       // Otherwise
+        e.returnValue = false;                       // Use old IE version
+      }
+    }
+    
+
+
+// 4. Event Object
+
+
+// function checkLength(e, minLength) {         // Declare function
+//     var el, elMsg;                             // Declare variables
+//     if (!e) {                                  // If event object doesn't exist
+//       e = window.event;                        // Use IE fallback
+//     }
+//     el = e.target || e.srcElement;             // Get target of event
+//     elMsg = el.nextSibling;                    // Get its next sibling
+  
+//     if (el.value.length < minLength) {         // If length is too short set msg
+//       elMsg.innerHTML = 'Username must be ' + minLength + ' characters or more';
+//     } else {                                   // Otherwise
+//       elMsg.innerHTML = '';                    // Clear message
+//     }
+//   }
+  
+//   var elUsername = document.getElementById('username');// Get username input
+//   if (elUsername.addEventListener) {           // If event listener supported
+//     elUsername.addEventListener('blur', function(e) {  // On blur event
+//       // NOTE: This function is checkLength() - not checkUsername()
+//       checkLength(e, 5);                             // Call checkLength()
+//     }, false);                                       // Capture in bubble phase
+//   } else {                                           // Otherwise
+//     elUsername.attachEvent('onblur', function(e) {   // IE fallback onblur
+//       // NOTE: This function is checkLength() - not checkUsername()
+//       checkLength(e, 5);                             // Call checkLength()
+
+
+
+// 3.EVENT HADLERS WITH PARAMTERS///
+// var elUsername = document.getElementById('username');   // Username input
+// var elMsg      = document.getElementById('feedback');   // Error msg element
+
+// function checkUsername(minLength) {                     // Declare function
+//   if (elUsername.value.length < minLength) {            // If username too short
+//     // Set the error message
+//     elMsg.innerHTML = 'Username must be ' + minLength + ' characters or more';
+//   } else {                                             // Otherwise
+//     elMsg.innerHTML = '';                              // Clear msg
+//   }
+// }
+
+// elUsername.addEventListener('blur', function() {        // When it loses focus
+//   checkUsername(5);                                     // Pass argument here
+// }, false);
 
 
 
@@ -132,13 +211,13 @@ elUsername.addEventListener('blur', function() {        // When it loses focus
 
 // 12.Accesing textnodes
 
-var itemTwo = document.getElementById('two');  // Get second list item
+// var itemTwo = document.getElementById('two');  // Get second list item
 
-var elText  = itemTwo.firstChild.nodeValue;    // Get its text content
+// var elText  = itemTwo.firstChild.nodeValue;    // Get its text content
 
-elText = elText.replace('kale', 'bananas');  // Change pine nuts to kale
+// elText = elText.replace('kale', 'bananas');  // Change pine nuts to kale
 
-itemTwo.firstChild.nodeValue = elText;         // Update the list item
+// itemTwo.firstChild.nodeValue = elText;         // Update the list item
 	
 
 
