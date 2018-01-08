@@ -1,8 +1,17 @@
 // *****************CHAPTER 7 JQuery******************/
 
+
+
+
+
+// 3. Chaining 
+// $('li[id!="one"]').hide().delay(500).fadeIn(1400); // semi-colon indicates end of chaining - can be writen on separate lines
+// $('li:first-child').addClass('next');
+// $('li.priority').addClass('highlight');
+
+
+
 // 2. Looping
-
-
 
 // $('li em').addClass('seasonal');
 // $('li.hot').addClass('favorite');
