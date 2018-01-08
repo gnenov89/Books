@@ -1,13 +1,21 @@
 // *****************CHAPTER 7 JQuery******************/
 
+// 2. Looping
+
+
+
+// $('li em').addClass('seasonal');
+// $('li.hot').addClass('favorite');
+
+
 // 1.Basic JQuery Example
 
 
-$(':header').addClass('headline');
-$('li:lt(3)').hide().fadeIn(1500);
-$('li').on('click', function() {
-  $(this).remove();
-});
+// $(':header').addClass('headline');
+// $('li:lt(3)').hide().fadeIn(1500);
+// $('li').on('click', function() {
+//   $(this).remove();
+// });
 
 
 
