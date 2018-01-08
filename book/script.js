@@ -1,7 +1,12 @@
 // *****************CHAPTER 7 JQuery******************/
 
 
+// <!-- 4.Getting AT Content -->
 
+$(function() {
+    var $listHTML = $('ul').html();
+    $('ul').append($listHTML);
+  });
 
 
 // 3. Chaining 
