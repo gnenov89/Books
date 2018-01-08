@@ -1,15 +1,24 @@
 // *****************CHAPTER 7 JQuery******************/
 
 
-// 5.Changing content 
+// 6.Adding new content 
 
 $(function() {
-    $('li:contains("pine")').text('almonds');
-    $('li.hot').html(function() {
-      return $('li').append('<em>' + $(this).text() + '</em>');
-    });
-    $('li#one').remove();
+    $('ul').before('<p class="notice">Just updated</p>');
+    $('li.hot').prepend('+ ');
+    var $newListItem = $('<li><em>gluten-free</em> soy sauce</li>');
+    $('li:last').after($newListItem);
   });
+
+// 5.Changing content 
+
+// $(function() {
+//     $('li:contains("pine")').text('almonds');
+//     $('li.hot').html(function() {
+//       return '<em>' + $(this).text() + '</em>';
+//     });
+//     $('li#one').remove();
+//   });
 
 // <!-- 4.Getting AT Content -->
 // var $listItemHtml = $("li").text();
