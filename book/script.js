@@ -1,12 +1,30 @@
 // *****************CHAPTER 7 JQuery******************/
 
 
-// <!-- 4.Getting AT Content -->
+// 5.Changing content 
 
 $(function() {
-    var $listHTML = $('ul').html();
-    $('ul').append($listHTML);
+    $('li:contains("pine")').text('almonds');
+    $('li.hot').html(function() {
+      return $('li').append('<em>' + $(this).text() + '</em>');
+    });
+    $('li#one').remove();
   });
+
+// <!-- 4.Getting AT Content -->
+// var $listItemHtml = $("li").text();
+// $("li").append("<i>" + $listItemHtml + "</i>");
+
+// var $listItemHtml = $("li").html();
+// $("li").append("<i>" + $listItemHtml + "</i>");
+
+// var someVar = $("ul").text();
+// $("ul").append("<p>" + someVar + "</p>");
+
+// $(function() {
+//     var $listHTML = $('ul').html();
+//     $('ul').append($listHTML);
+//   });
 
 
 // 3. Chaining 
