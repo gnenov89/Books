@@ -1,14 +1,32 @@
 // *****************CHAPTER 7 JQuery******************/
 
 
+// 10.Events
+$(function() {
+  var ids = '';
+  var $listItems = $('li');
+
+  $listItems.on('mouseover click', function() {
+    ids = this.id;
+    $listItems.children('span').remove();
+    $(this).append(' <span class="priority">' + ids + '</span>');
+  });
+
+  $listItems.on('mouseout', function() {
+    $(this).children('span').remove();
+  });
+
+});
+
+
 // <!-- 9.Using each() -->
 
-$(function() {
-  $('li').each(function() {
-    var ids = this.id;
-    $(this).append(' <span class="order">' + ids + '</span>');
-  });
-});
+// $(function() {
+//   $('li').each(function() {
+//     var ids = this.id;
+//     $(this).append(' <span class="order">' + ids + '</span>');
+//   });
+// });
 
 
 
