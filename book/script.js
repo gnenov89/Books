@@ -1,14 +1,23 @@
 // *****************CHAPTER 7 JQuery******************/
 
+// 7.Working with attributes
+
+$(function() {
+  $('li#three').removeClass('hot');
+  $('li.hot').addClass('favorite');
+  $('ul').attr('id', 'group');
+});
+
+
 
 // 6.Adding new content 
 
-$(function() {
-    $('ul').before('<p class="notice">Just updated</p>');
-    $('li.hot').prepend('+ ');
-    var $newListItem = $('<li><em>gluten-free</em> soy sauce</li>');
-    $('li:last').after($newListItem);
-  });
+// $(function() {
+//     $('ul').before('<p class="notice">Just updated</p>');
+//     $('li.hot').prepend('+ ');
+//     var $newListItem = $('<li><em>gluten-free</em> soy sauce</li>');
+//     $('li:last').after($newListItem);
+//   });
 
 // 5.Changing content 
 
