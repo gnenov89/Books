@@ -1,24 +1,39 @@
 // *****************CHAPTER 7 JQuery******************/
-// 8.Applying CSS Rules
+
+
+// <!-- 9.Using each() -->
 
 $(function() {
-
-  // Get the background color of the first list item.
-  var backgroundColor = $('li').css('background-color');
-
-  // Write what the background color was after the list.
-  $('ul').prepend('<p>Color was: ' + backgroundColor + '</p>');
-
-  // Set several properties on all list items.
-  $('li').css({
-    'background-color': 'yellow',
-    'border': '1px solid #fff',
-    'color': '#000',
-    'text-shadow': 'none',
-    'font-family': 'Georgia',
-    'padding-left': '+=75'
+  $('li').each(function() {
+    var ids = this.id;
+    $(this).append(' <span class="order">' + ids + '</span>');
   });
 });
+
+
+
+
+
+// 8.Applying CSS Rules
+
+// $(function() {
+
+//   // Get the background color of the first list item.
+//   var backgroundColor = $('li').css('background-color');
+
+//   // Write what the background color was after the list.
+//   $('ul').prepend('<p>Color was: ' + backgroundColor + '</p>');
+
+  // Set several properties on all list items.
+//   $('li').css({
+//     'background-color': 'yellow',
+//     'border': '1px solid #fff',
+//     'color': '#000',
+//     'text-shadow': 'none',
+//     'font-family': 'Georgia',
+//     'padding-left': '+=75'
+//   });
+// });
 
 
 
