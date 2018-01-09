@@ -1,12 +1,35 @@
 // *****************CHAPTER 7 JQuery******************/
+// 8.Applying CSS Rules
+
+$(function() {
+
+  // Get the background color of the first list item.
+  var backgroundColor = $('li').css('background-color');
+
+  // Write what the background color was after the list.
+  $('ul').prepend('<p>Color was: ' + backgroundColor + '</p>');
+
+  // Set several properties on all list items.
+  $('li').css({
+    'background-color': 'yellow',
+    'border': '1px solid #fff',
+    'color': '#000',
+    'text-shadow': 'none',
+    'font-family': 'Georgia',
+    'padding-left': '+=75'
+  });
+});
+
+
+
 
 // 7.Working with attributes
 
-$(function() {
-  $('li#three').removeClass('hot');
-  $('li.hot').addClass('favorite');
-  $('ul').attr('id', 'group');
-});
+// $(function() {
+//   $('li#three').removeClass('hot');
+//   $('li.hot').addClass('favorite');
+//   $('ul').attr('id', 'group');
+// });
 
 
 
