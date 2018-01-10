@@ -1,15 +1,33 @@
 // *****************CHAPTER 7 JQuery******************/
-// 14.Animations 
+
+
+// 15.Traversing 
 $(function() {
-  $('li').on('click', function() {
-    $(this).animate({
-      opacity: 0.0,
-      paddingLeft: '+=80'
-    }, 1000, function() {
-      $(this).remove();
-    });
+  var $h2 = $('h2');
+  $('ul').hide();
+  $h2.append('<a class="show">show</a>');
+
+  $h2.on('click', function() {
+    $h2.next('ul')
+      .fadeIn(500)
+      .children('.hot')
+      .addClass('complete');
+    $h2.find('a').fadeOut();
   });
+
 });
+
+// 14.Animations 
+// $(function() {
+//   $('li').on('click', function() {
+//     $(this).animate({
+//       opacity: 0.0,
+//       paddingLeft: '+=80'
+//     }, 1000, function() {
+//       $(this).remove();
+//     });
+//   });
+// });
 
 
 
