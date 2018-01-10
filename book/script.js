@@ -1,23 +1,37 @@
 // *****************CHAPTER 7 JQuery******************/
+// 13.Effects
 
-
-// 12.Delegating events 
 $(function() {
-  var listItem, itemStatus, eventType;
 
-  $('ul').on(
-    'click mouseover',
-    ':not(#four)',
-    {status: 'important'},
-    function(e) {
-      listItem = 'Item: ' + e.target.textContent + '<br />';
-      itemStatus = 'Status: ' + e.data.status + '<br />';
-      eventType = 'Event: ' + e.type;
-      $('#notes').html(listItem + itemStatus + eventType);
-    }
-  );
+  $('h2').hide().slideDown();
+  var $li = $('li');
+  $li.hide().each(function(index) {
+    $(this).delay(700 * index).fadeIn(700);
+  });
+
+  $li.on('click', function() {
+    $(this).fadeOut(700);
+  });
 
 });
+
+// 12.Delegating events 
+// $(function() {
+//   var listItem, itemStatus, eventType;
+
+//   $('ul').on(
+//     'click mouseover mouseleave',
+//     ':not(#four)',
+//     {status: 'important'},
+//     function(e) {
+//       listItem = 'Item: ' + e.target.textContent + '<br />';
+//       itemStatus = 'Status: ' + e.data.status + '<br />';
+//       eventType = 'Event: ' + e.type;
+//       $('#notes').html(listItem + itemStatus + eventType);
+//     }
+//   );
+
+// });
 
 // 11.Event objects
 // $(function() {
