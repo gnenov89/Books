@@ -1,19 +1,34 @@
 // *****************CHAPTER 7 JQuery******************/
+// 14.Animations 
+$(function() {
+  $('li').on('click', function() {
+    $(this).animate({
+      opacity: 0.0,
+      paddingLeft: '+=80'
+    }, 1000, function() {
+      $(this).remove();
+    });
+  });
+});
+
+
+
+
 // 13.Effects
 
-$(function() {
+// $(function() {
 
-  $('h2').hide().slideDown();
-  var $li = $('li');
-  $li.hide().each(function(index) {
-    $(this).delay(700 * index).fadeIn(700);
-  });
+//   $('h2').hide().slideDown();
+//   var $li = $('li');
+//   $li.hide().each(function(index) {
+//     $(this).delay(700 * index).fadeIn(700);
+//   });
 
-  $li.on('click', function() {
-    $(this).fadeOut(700);
-  });
+//   $li.on('click', function() {
+//     $(this).fadeOut(700);
+//   });
 
-});
+// });
 
 // 12.Delegating events 
 // $(function() {
