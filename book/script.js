@@ -1,21 +1,40 @@
 // *****************CHAPTER 7 JQuery******************/
 
 
-// 15.Traversing 
+// 16.Filters in use
 $(function() {
-  var $h2 = $('h2');
-  $('ul').hide();
-  $h2.append('<a class="show">show</a>');
+  var $listItems = $('li');
 
-  $h2.on('click', function() {
-    $h2.next('ul')
-      .fadeIn(500)
-      .children('.hot')
-      .addClass('complete');
-    $h2.find('a').fadeOut();
+  $listItems.filter('.hot:last').removeClass('hot');
+  $('li:not(.hot)').addClass('cool');
+  $listItems.has('em').addClass('complete');
+
+  $listItems.each(function() {
+    var $this = $(this);
+    if ($this.is('.hot')) {
+      $this.prepend('Priority item: ');
+    }
   });
 
+  $('li:contains("honey")').append(' (local)');
 });
+
+
+// 15.Traversing 
+// $(function() {
+//   var $h2 = $('h2');
+//   $('ul').hide();
+//   $h2.append('<a class="show">show</a>');
+
+//   $h2.on('click', function() {
+//     $h2.next('ul')
+//       .fadeIn(500)
+//       .children('.hot')
+//       .addClass('complete');
+//     $h2.find('a').fadeOut();
+//   });
+
+// });
 
 // 14.Animations 
 // $(function() {
