@@ -1,11 +1,41 @@
 // *****************CHAPTER 7 JQuery******************/
-// 17.Using Indexes
+
+// 18.Working with Forms
 
 $(function() {
-  $('li:lt(2)').removeClass('hot');
-  $('li').eq(0).addClass('complete');
-  // $('li:gt(2)').addClass('cool');
+
+  var $newItemButton = $('#newItemButton');
+  var $newItemForm = $('#newItemForm');
+  var $textInput = $('input:text');
+
+  $newItemButton.show();
+  $newItemForm.hide();
+
+  $('#showForm').on('click', function(){
+    $newItemButton.hide();
+    $newItemForm.show();
+  });
+
+  $newItemForm.on('submit', function(e){
+    e.preventDefault();
+    var newText = $textInput.val();
+    $('li:last').before('<li>' + newText + '</li>');
+    $newItemForm.hide();
+    $newItemButton.show();
+    $textInput.val('');
+  });
+
 });
+
+
+
+// 17.Using Indexes
+
+// $(function() {
+//   $('li:lt(2)').removeClass('hot');
+//   $('li').eq(0).addClass('complete');
+//   $('li:gt(2)').addClass('cool');
+// });
 
 // 16.Filters in use
 // $(function() {
