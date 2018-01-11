@@ -1,23 +1,29 @@
 // *****************CHAPTER 7 JQuery******************/
+// 17.Using Indexes
 
+$(function() {
+  $('li:lt(2)').removeClass('hot');
+  $('li').eq(0).addClass('complete');
+  // $('li:gt(2)').addClass('cool');
+});
 
 // 16.Filters in use
-$(function() {
-  var $listItems = $('li');
+// $(function() {
+//   var $listItems = $('li');
 
-  $listItems.filter('.hot:last').removeClass('hot');
-  $('li:not(.hot)').addClass('cool');
-  $listItems.has('em').addClass('complete');
+//   $listItems.filter('.hot:last').removeClass('hot');
+//   $('li:not(.hot)').addClass('cool');
+//   $listItems.has('em').addClass('complete');
 
-  $listItems.each(function() {
-    var $this = $(this);
-    if ($this.is('.hot')) {
-      $this.prepend('Priority item: ');
-    }
-  });
+//   $listItems.each(function() {
+//     var $this = $(this);
+//     if ($this.is('.hot')) {
+//       $this.prepend('Priority item: ');
+//     }
+//   });
 
-  $('li:contains("honey")').append(' (local)');
-});
+//   $('li:contains("honey")').append(' (local)');
+// });
 
 
 // 15.Traversing 
