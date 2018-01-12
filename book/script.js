@@ -1,31 +1,52 @@
 // *****************CHAPTER 7 JQuery******************/
 
+// 19.Copy, Paste and Delete
+
+// $(function() {
+//   var $p = $('p');
+
+//   // Create a clone of the <p> element and add it after the <h2> element.
+//   var $clonedQuote = $p.clone();
+//   $p.remove();
+//   $clonedQuote.insertAfter('h2');
+
+//   // Remove first item, and add it to the end of the list.
+//   // Note how this happens in both lists.
+//   var $moveItem = $('#one').detach();
+
+//   $moveItem.prependTo('ul');
+// });
+
+
+
+
+
 // 18.Working with Forms
 
-$(function() {
+// $(function() {
 
-  var $newItemButton = $('#newItemButton');
-  var $newItemForm = $('#newItemForm');
-  var $textInput = $('input:text');
+//   var $newItemButton = $('#newItemButton');
+//   var $newItemForm = $('#newItemForm');
+//   var $textInput = $('input:text');
 
-  $newItemButton.show();
-  $newItemForm.hide();
+//   $newItemButton.show();
+//   $newItemForm.hide();
 
-  $('#showForm').on('click', function(){
-    $newItemButton.hide();
-    $newItemForm.show();
-  });
+//   $('#showForm').on('click', function(){
+//     $newItemButton.hide();
+//     $newItemForm.show();
+//   });
 
-  $newItemForm.on('submit', function(e){
-    e.preventDefault();
-    var newText = $textInput.val();
-    $('li:last').before('<li>' + newText + '</li>');
-    $newItemForm.hide();
-    $newItemButton.show();
-    $textInput.val('');
-  });
+//   $newItemForm.on('submit', function(e){
+//     e.preventDefault();
+//     var newText = $textInput.val();
+//     $('li:last').before('<li>' + newText + '</li>');
+//     $newItemForm.hide();
+//     $newItemButton.show();
+//     $textInput.val('');
+//   });
 
-});
+// });
 
 
 
