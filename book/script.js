@@ -1,5 +1,17 @@
 // *****************CHAPTER 7 JQuery******************/
 
+// 20.Changing dimensions
+
+$(function() {
+  var listHeight = $('#page').height();
+
+  $('ul').append('<p>Height: ' + listHeight + 'px</p>');
+  $('li').width("100px").height("50px");
+  $('li#one').width(125);
+  $('li#two').width(200);
+});
+
+
 // 19.Copy, Paste and Delete
 
 // $(function() {
