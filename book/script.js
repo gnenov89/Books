@@ -1,15 +1,35 @@
 // *****************CHAPTER 7 JQuery******************/
 
+
+// 21.Determening positions on the page
+$(function() {
+  var $window = $(window);
+  var $slideAd = $('#slideAd');
+  var endZone = $('#footer').offset().top - $window.height() - 500;
+
+  $window.on('scroll', function() {
+
+    if (endZone < $window.scrollTop()) {
+      $slideAd.animate({ 'right': '0px' }, 250);
+    } else {
+      $slideAd.stop(true).animate({ 'right': '-360px' }, 250);
+    }
+
+  });
+
+});
+
+
 // 20.Changing dimensions
 
-$(function() {
-  var listHeight = $('#page').height();
+// $(function() {
+//   var listHeight = $('#page').height();
 
-  $('ul').append('<p>Height: ' + listHeight + 'px</p>');
-  $('li').width("100px").height("50px");
-  $('li#one').width(125);
-  $('li#two').width(200);
-});
+//   $('ul').append('<p>Height: ' + listHeight + 'px</p>');
+//   $('li').width("100px").height("50px");
+//   $('li#one').width(125);
+//   $('li#two').width(200);
+// });
 
 
 // 19.Copy, Paste and Delete
