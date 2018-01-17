@@ -1,53 +1,112 @@
 
 // <!-- Chapter 8 AJAX/JSON -->
+// 4.USing Jsonp
 
-// 2.Loading XML 
+function showEvents(data) {                           // Callback when JSON loads
+  var newContent = '';                                // Variable to hold HTML
+ 
+    // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
+    for (var i = 0; i < data.events.length; i++) {    // Loop through object
+      newContent += '<div class="event">';
+      newContent += '<img src="' + data.events[i].map + '" ';
+      newContent += 'alt="' + data.events[i].location + '" />';
+      newContent += '<p><b>' + data.events[i].location + '</b><br>';
+      newContent += data.events[i].date + '</p>';
+      newContent += '</div>';
+    }
+
+    // Update the page with the new content
+    document.getElementById('content').innerHTML = newContent;
+}
+
+
+// 3. Loading JSON with AJAX
+
+// NOTE: If you run this file locally
+// You will not get a server status
+// You can comment out lines 9 and 26 to make it work locally
+
+// var xhr = new XMLHttpRequest();                 // Create XMLHttpRequest object
+
+// xhr.onload = function() {                       // When readystate changes
+//   // The following conditional check will not work locally - only on a server
+//   // if(xhr.status === 200) {                      // If server status was ok
+//     responseObject = JSON.parse(xhr.responseText);
+
+//     // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
+//     var newContent = '';
+//     for (var i = 0; i < responseObject.events.length; i++) { // Loop through object
+//       newContent += '<div class="event">';
+//       newContent += '<img src="' + responseObject.events[i].map + '" ';
+//       newContent += 'alt="' + responseObject.events[i].location + '" />';
+//       newContent += '<p><b>' + responseObject.events[i].location + '</b><br>';
+//       newContent += responseObject.events[i].date + '</p>';
+//       newContent += '</div>';
+//     }
+
+//     // Update the page with the new content
+//     document.getElementById('content').innerHTML = newContent;
+
+//   // }
+// };
+
+// xhr.open('GET', 'data.json', true);        // Prepare the request
+// xhr.send(null);                                 // Send the request
+
+// When working locally in Firefox, you may see an error saying that the JSON is not well-formed.
+// This is because Firefox is not reading the correct MIME type (and it can safely be ignored).
+
+// If you get it on a server, you may need to se the MIME type for JSON on the server (application/JSON).
+
+
+
+// 2.Loading XML with AJAX 
 
 // NOTE: If you run this file locally
 // You will not get a server status and the example will fail
 // Comment out lines 9 and 35 if you are working locally
 
-var xhr = new XMLHttpRequest();        // Create XMLHttpRequest object
+// var xhr = new XMLHttpRequest();        // Create XMLHttpRequest object
 
-xhr.onload = function() {              // When response has loaded
- // The following conditional check will not work locally - only on a server
- // if (xhr.status === 200) {             // If server status was ok
+// xhr.onload = function() {              // When response has loaded
+//  // The following conditional check will not work locally - only on a server
+//  // if (xhr.status === 200) {             // If server status was ok
 
-  // THIS PART IS DIFFERENT BECAUSE IT IS PROCESSING XML NOT HTML
-  var response = xhr.responseXML;                      // Get XML from the server
-  var events = response.getElementsByTagName('event'); // Find <event> elements
+//   // THIS PART IS DIFFERENT BECAUSE IT IS PROCESSING XML NOT HTML
+//   var response = xhr.responseXML;                      // Get XML from the server
+//   var events = response.getElementsByTagName('event'); // Find <event> elements
 
-  for (var i = 0; i < events.length; i++) {            // Loop through them
-    var container, image, location, city, newline;      // Declare variables
-    container = document.createElement('div');          // Create <div> container
-    container.className = 'event';                      // Add class attribute
+//   for (var i = 0; i < events.length; i++) {            // Loop through them
+//     var container, image, location, city, newline;      // Declare variables
+//     container = document.createElement('div');          // Create <div> container
+//     container.className = 'event';                      // Add class attribute
 
-    image = document.createElement('img');              // Add map image
-    image.setAttribute('src', getNodeValue(events[i], 'map'));
-    image.setAttribute('alt', getNodeValue(events[i], 'location'));
-    container.appendChild(image);
+//     image = document.createElement('img');              // Add map image
+//     image.setAttribute('src', getNodeValue(events[i], 'map'));
+//     image.setAttribute('alt', getNodeValue(events[i], 'location'));
+//     container.appendChild(image);
 
-    location = document.createElement('p');             // Add location data
-    city = document.createElement('b');
-    newline = document.createElement('br');
-    city.appendChild(document.createTextNode(getNodeValue(events[i], 'location')));
-    location.appendChild(newline);
-    location.insertBefore(city, newline);
-    location.appendChild(document.createTextNode(getNodeValue(events[i], 'date')));
-    container.appendChild(location);
+//     location = document.createElement('p');             // Add location data
+//     city = document.createElement('b');
+//     newline = document.createElement('br');
+//     city.appendChild(document.createTextNode(getNodeValue(events[i], 'location')));
+//     location.appendChild(newline);
+//     location.insertBefore(city, newline);
+//     location.appendChild(document.createTextNode(getNodeValue(events[i], 'date')));
+//     container.appendChild(location);
 
-    document.getElementById('content').appendChild(container);
-  }
-}
+//     document.getElementById('content').appendChild(container);
+//   }
+// }
 
-  function getNodeValue(obj, tag) {                   // Gets content from XML
-    return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
-  }
+//   function getNodeValue(obj, tag) {                   // Gets content from XML
+//     return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
+//   }
 
-//  THE FINAL PART IS THE SAME AS THE HTML EXAMPLE BUT IT REQUESTS AN XML FILE
+// //  THE FINAL PART IS THE SAME AS THE HTML EXAMPLE BUT IT REQUESTS AN XML FILE
 
-xhr.open('GET', 'data/data.xml', true);             // Prepare the request
-xhr.send(null);                                     // Send the request
+// xhr.open('GET', 'data/data.xml', true);             // Prepare the request
+// xhr.send(null);                                     // Send the request
 
 
 
