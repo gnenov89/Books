@@ -1,23 +1,40 @@
 
 // <!-- Chapter 8 AJAX/JSON -->
+
+// 5.Requesting data
+// NOTE: This example will only work if you run it on a web server (it will not work locally)
+
+// This first variable creates the t-shirt options, the HTML for it is shown on p393
+var vote = '<div id="vote"><div class="third"><a href="http://example.org?tshirt=gray"><img src="img/t-gray.png" id="gray" alt="gray" /></a></div><div class="third"><a href="http://example.org?tshirt=yellow" id="yellow"><img src="img/t-yellow.png" id="yellow" alt="yellow" /></a></div><div class="third"><a href="http://example.org?tshirt=green"><img src="img/t-green.png" id="green" alt="green" /></a></div></div>';
+$('#selector').append(vote);
+
+// This adds ratings to the side bar
+$('#selector a').on('click', function(e) {
+  e.preventDefault();
+  var queryString = 'vote=' + $(e.target).attr('id');
+  $.get('votes.php', queryString, function(data) {
+    $('#selector').html(data);
+  });
+});
+
 // 4.USing Jsonp
 
-function showEvents(data) {                           // Callback when JSON loads
-  var newContent = '';                                // Variable to hold HTML
+// function showEvents(data) {                           // Callback when JSON loads
+//   var newContent = '';                                // Variable to hold HTML
  
-    // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
-    for (var i = 0; i < data.events.length; i++) {    // Loop through object
-      newContent += '<div class="event">';
-      newContent += '<img src="' + data.events[i].map + '" ';
-      newContent += 'alt="' + data.events[i].location + '" />';
-      newContent += '<p><b>' + data.events[i].location + '</b><br>';
-      newContent += data.events[i].date + '</p>';
-      newContent += '</div>';
-    }
+//     // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
+//     for (var i = 0; i < data.events.length; i++) {    // Loop through object
+//       newContent += '<div class="event">';
+//       newContent += '<img src="' + data.events[i].map + '" ';
+//       newContent += 'alt="' + data.events[i].location + '" />';
+//       newContent += '<p><b>' + data.events[i].location + '</b><br>';
+//       newContent += data.events[i].date + '</p>';
+//       newContent += '</div>';
+//     }
 
-    // Update the page with the new content
-    document.getElementById('content').innerHTML = newContent;
-}
+//     // Update the page with the new content
+//     document.getElementById('content').innerHTML = newContent;
+// }
 
 
 // 3. Loading JSON with AJAX
