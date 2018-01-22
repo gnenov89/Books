@@ -4,13 +4,13 @@
 
 // 6.Handling Forms 
 
-$('#register').on('submit', function(e) {           // When form is submitted
-  e.preventDefault();                               // Prevent it being sent
-  var details = $('#register').serialize();         // Serialize form data
-  $.post('register.php', details, function(data) {  // Use $.post() to send it
-    $('#register').html(data);                    // Where to display result
-  });
-});
+// $('#register').on('submit', function(e) {           // When form is submitted
+//   e.preventDefault();                               // Prevent it being sent
+//   var details = $('#register').serialize();         // Serialize form data
+//   $.post('register.php', details, function(data) {  // Use $.post() to send it
+//     $('#register').html(data);                    // Where to display result
+//   });
+// });
 
 // 5.Requesting data
 // NOTE: This example will only work if you run it on a web server (it will not work locally)
