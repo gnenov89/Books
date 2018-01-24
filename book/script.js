@@ -4,25 +4,46 @@
 
 // <!-- CHAPTER 9 API'S -->
 
+
+// 2. Session storage
+
+// This example has been updated to use Modernizr - please note the use of of lowercase in sessionstorage
+if (Modernizr.sessionstorage) {
+
+  var txtUsername = document.getElementById('username'),  // Get form elements
+      txtAnswer = document.getElementById('answer');
+
+  txtUsername.value = sessionStorage.getItem('username'); // Elements populated
+  txtAnswer.value = sessionStorage.getItem('answer');     // by sessionStorage
+
+  txtUsername.addEventListener('input', function () {     // Save data on keyup
+    sessionStorage.setItem('username', txtUsername.value);
+  }, false);
+
+  txtAnswer.addEventListener('input', function () {       // Save data on keyup
+    sessionStorage.setItem('answer', txtAnswer.value);
+  }, false);
+}
+
 // <!-- 1.Working with storage -->
 
 // This example has been updated to use Modernizr - please note the use of localstorage in lowercase
-if (Modernizr.localstorage) {
+// if (Modernizr.localstorage) {
 
-  var txtUsername = document.getElementById('username'); // Get form elements
-  var txtAnswer = document.getElementById('answer');
+//   var txtUsername = document.getElementById('username'); // Get form elements
+//   var txtAnswer = document.getElementById('answer');
 
-  txtUsername.value = localStorage.getItem('username');  // Elements populated
-  txtAnswer.value = localStorage.getItem('answer');      // by localStorage data
+//   txtUsername.value = localStorage.getItem('username');  // Elements populated
+//   txtAnswer.value = localStorage.getItem('answer');      // by localStorage data
 
-  txtUsername.addEventListener('input', function () {    // Data saved on keyup
-    localStorage.setItem('username', txtUsername.value);
-  }, false);
+//   txtUsername.addEventListener('input', function () {    // Data saved on keyup
+//     localStorage.setItem('username', txtUsername.value);
+//   }, false);
 
-  txtAnswer.addEventListener('input', function () {      // Data saved on keyup
-    localStorage.setItem('answer', txtAnswer.value);
-  }, false);
-}
+//   txtAnswer.addEventListener('input', function () {      // Data saved on keyup
+//     localStorage.setItem('answer', txtAnswer.value);
+//   }, false);
+// }
 
 
 // <!-- Chapter 8 AJAX/JSON -->
