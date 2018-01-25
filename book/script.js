@@ -1,8 +1,39 @@
 
 
+// CHAPTER 10. DEBUGING 
 
+console.log('And we\'re off');
+
+var $form;
+$form = $("#wrong-syntax");
 
 // <!-- CHAPTER 9 API'S -->
+
+
+// 4.Working with Forms 
+
+
+// $(function() {
+
+//   $('#arrival').datepicker();      // Turn input to JQUI datepicker
+
+//   var $amount = $('#amount');      // Cache the price input
+//   var $range = $('#price-range');  // Cache the <div> for the price range
+//   $('#price-range').slider({       // Turn price-range input into a slider
+//     range: true,                   // If it is a range it gets two handles
+//     min: 0,                        // Minimum value
+//     max: 400,                      // Maximum value
+//     values: [175, 300],            // Values to use when the page loads 
+//     slide: function(event, ui) {   // When slider used update amount element
+//       $amount.val('$' + ui.values[0] + ' - $' + ui.values[1]);
+//     }
+//   });
+//   $amount                          // Set initial values of amount element
+//     .val('$' + $range.slider('values', 0)     // A $ sign then lower range
+//     + ' - $' + $range.slider('values', 1)); // A $ sign then higher range
+
+// });
+
 
 
 // 3.Working with History
@@ -13,49 +44,49 @@
 // You can try it online at http://javascriptbook.com/code/c09 
 // or run it on your own web server
 
-$(function() {                                  // DOM has loaded
-  function loadContent(url){                    // Load new content into page
-    $('#content').load(url + ' #container').hide().fadeIn('slow');
-  }
+// $(function() {                                  // DOM has loaded
+//   function loadContent(url){                    // Load new content into page
+//     $('#content').load(url + ' #container').hide().fadeIn('slow');
+//   }
 
-  $('nav a').on('click', function(e) {          // Click handler 
-    e.preventDefault();                         // Stop link loading new page
-    var href = this.href;                       // Get href attribute of link
-    var $this = $(this);                        // Store link in jQuery object
-    $('a').removeClass('current');              // Remove current from links
-    $this.addClass('current');                  // Update current link
-    loadContent(href);                          // Call function: loads content
-    history.pushState('', $this.text, href);    // Update history
-  });
+//   $('nav a').on('click', function(e) {          // Click handler 
+//     e.preventDefault();                         // Stop link loading new page
+//     var href = this.href;                       // Get href attribute of link
+//     var $this = $(this);                        // Store link in jQuery object
+//     $('a').removeClass('current');              // Remove current from links
+//     $this.addClass('current');                  // Update current link
+//     loadContent(href);                          // Call function: loads content
+//     history.pushState('', $this.text, href);    // Update history
+//   });
 
-  window.onpopstate = function() {              // Handle back/forward buttons
-    var path = location.pathname;               // Get file path
-    loadContent(path);                          // Call function to load page
-    var page = path.substring(location.pathname.lastIndexOf('/')+1);
-    $('a').removeClass('current');              // Remove current from links
-    $('[href="' + page + '"]').addClass('current'); // Update current link
-  };
-});
+//   window.onpopstate = function() {              // Handle back/forward buttons
+//     var path = location.pathname;               // Get file path
+//     loadContent(path);                          // Call function to load page
+//     var page = path.substring(location.pathname.lastIndexOf('/')+1);
+//     $('a').removeClass('current');              // Remove current from links
+//     $('[href="' + page + '"]').addClass('current'); // Update current link
+//   };
+// });
 
-// 2. Session storage
+// // 2. Session storage
 
-// This example has been updated to use Modernizr - please note the use of of lowercase in sessionstorage
-if (Modernizr.sessionstorage) {
+// // This example has been updated to use Modernizr - please note the use of of lowercase in sessionstorage
+// if (Modernizr.sessionstorage) {
 
-  var txtUsername = document.getElementById('username'),  // Get form elements
-      txtAnswer = document.getElementById('answer');
+//   var txtUsername = document.getElementById('username'),  // Get form elements
+//       txtAnswer = document.getElementById('answer');
 
-  txtUsername.value = sessionStorage.getItem('username'); // Elements populated
-  txtAnswer.value = sessionStorage.getItem('answer');     // by sessionStorage
+//   txtUsername.value = sessionStorage.getItem('username'); // Elements populated
+//   txtAnswer.value = sessionStorage.getItem('answer');     // by sessionStorage
 
-  txtUsername.addEventListener('input', function () {     // Save data on keyup
-    sessionStorage.setItem('username', txtUsername.value);
-  }, false);
+//   txtUsername.addEventListener('input', function () {     // Save data on keyup
+//     sessionStorage.setItem('username', txtUsername.value);
+//   }, false);
 
-  txtAnswer.addEventListener('input', function () {       // Save data on keyup
-    sessionStorage.setItem('answer', txtAnswer.value);
-  }, false);
-}
+//   txtAnswer.addEventListener('input', function () {       // Save data on keyup
+//     sessionStorage.setItem('answer', txtAnswer.value);
+//   }, false);
+// }
 
 // <!-- 1.Working with storage -->
 
