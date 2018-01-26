@@ -2,27 +2,51 @@
 
 // CHAPTER 10. DEBUGING 
 
+// 7. Writing table data
+var contacts = {                 // Store contact info in an object literal
+  "London": {
+    "Tel": "+44 (0)207 946 0128",
+    "Country": "UK"},
+  "Sydney": {
+    "Tel": "+61 (0)2 7010 1212",
+    "Country": "Australia"},
+  "New York": {
+    "Tel": "+1 (0)1 555 2104",
+    "Country": "USA"}
+};
+
+console.table(contacts);                   // Write data content to console
+
+var city, contactDetails;                  // Declare variables
+contactDetails = '';                       // Will hold details written to page
+
+$.each(contacts, function(city, contacts) {
+  contactDetails += city + ': ' + contacts.Tel + ':'+ contacts.Country +'<br />';
+});
+$('h2').after('<p>' + contactDetails + '</p>');
+
+
 // 6.Group Messages 
 
-var $form = $('#calculator');
+// var $form = $('#calculator');
 
-$form.on('submit', function(e) {                 // Runs when submit is pressed
-  e.preventDefault();
-  console.log('Clicked submit...');              // Show the button was clicked
+// $form.on('submit', function(e) {                 // Runs when submit is pressed
+//   e.preventDefault();
+//   console.log('Clicked submit...');              // Show the button was clicked
 
-  var width, height, area;
-  width = $('#width').val();
-  height = $('#height').val();
-  area = width * height;
+//   var width, height, area;
+//   width = $('#width').val();
+//   height = $('#height').val();
+//   area = width * height;
 
-  console.group('Area calculations');            // Start grouping
-    console.info('Width ', width);               // Write out the width
-    console.info('Height ', height);             // Write out the height
-    console.log(area);                           // Write out the area
-  console.groupEnd();                            // End group
+//   console.group('Area calculations');            // Start grouping
+//     console.info('Width ', width);               // Write out the width
+//     console.info('Height ', height);             // Write out the height
+//     console.log(area);                           // Write out the area
+//   console.groupEnd();                            // End group
 
-  $form.append('<p>' + area + '</p>');
-});
+//   $form.append('<p>' + area + '</p>');
+// });
 
 //5. Console Methods
 // console.info('And we\'re off...');                    // Info: script running
