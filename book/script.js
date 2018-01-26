@@ -2,28 +2,49 @@
 
 // CHAPTER 10. DEBUGING 
 
+// 6.Group Messages 
 
-//5. Console Methods
-console.info('And we\'re off...');                    // Info: script running
+var $form = $('#calculator');
 
-var $form, width, height, area;
-$form = $('#calculator');
-
-$('form input[type="text"]').on('blur', function() {  // On blur event
-  console.warn('You entered ', this.value);           // Warn: what was entered
-});
-
-$('#calculator').on('submit', function(e) {           // When form is submitted
+$form.on('submit', function(e) {                 // Runs when submit is pressed
   e.preventDefault();
+  console.log('Clicked submit...');              // Show the button was clicked
 
+  var width, height, area;
   width = $('#width').val();
   height = $('#height').val();
-
   area = width * height;
-  console.error(area);                                // Error: show area
 
-  $form.append('<p class="result">' + area + '</p>');
-}); 
+  console.group('Area calculations');            // Start grouping
+    console.info('Width ', width);               // Write out the width
+    console.info('Height ', height);             // Write out the height
+    console.log(area);                           // Write out the area
+  console.groupEnd();                            // End group
+
+  $form.append('<p>' + area + '</p>');
+});
+
+//5. Console Methods
+// console.info('And we\'re off...');                    // Info: script running
+
+// var $form, width, height, area;
+// $form = $('#calculator');
+
+// $('form input[type="text"]').on('blur', function() {  // On blur event
+//   console.warn('You entered ', this.value);           // Warn: what was entered
+// });
+
+// $('#calculator').on('submit', function(e) {           // When form is submitted
+//   e.preventDefault();
+
+//   width = $('#width').val();
+//   height = $('#height').val();
+
+//   area = width * height;
+//   console.error(area);                                // Error: show area
+
+//   $form.append('<p class="result">' + area + '</p>');
+// }); 
 
 
 
