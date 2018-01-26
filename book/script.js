@@ -2,28 +2,91 @@
 
 // CHAPTER 10. DEBUGING 
 
+// 9. Try, Catch, Finally 
+
+var feed = document.getElementById('feed');
+
+// Correct feed
+var response = '{"deals": [{"title": "Farrow and Ball","description": "New season 2.5l tins are all reduced this week","price": 30,"link": "http://www.example.com/farrow-and-ball/"},{"title": "Siecle Paints from the UK","description": "Probably the best named paints in the world","price": 28,"link": "http://www.example.com/siecle/"},{"title": "Kelly Hoppen","description": "Now stocking paints by interior designer Kelly Hoppen","price": 42,"link": "http://www.example.com/kelly-hoppen/"}]}';
+// Feed with errors - comment the next line out to see it working
+response = '{"deals": [{"title": "Farrow and Ball","description": "New season 2.5l '; // JSON data
+
+if (response) {
+  try {
+    var dealData = JSON.parse(response);              // Try to parse JSON
+    showContent(dealData);                            // Show JSON data
+  } catch(e) {
+    var errorMessage = e.name + ' ' + e.message;      // Create error msg
+    console.log(errorMessage);                        // Show devs msg
+    feed.innerHTML = '<em>Sorry, could not load deals</em>';// Show users msg
+  } finally {
+    var link = document.createElement('a');           // Add refresh link
+    link.innerHTML = ' <a href="try-catch-finally.html">reload</a>';
+    feed.appendChild(link);
+  }
+}
+
+function showContent(dealData) {
+  var newContent = '';
+  for (var i in dealData.deals) {
+    newContent += '<div class="deal">';
+    newContent += '<h2>' + dealData.deals[i].title + '</h2>';
+    newContent += '<p>' + dealData.deals[i].description + '</p>';
+    newContent += '<a href="' + dealData.deals[i].link + '">';
+    newContent += ' ' + dealData.deals[i].link;
+    newContent +='</a>';
+    newContent += '</div>';
+  }
+  feed.innerHTML = newContent;
+}
+
+
+// 8. Writing on a coditional 
+
+// var $form, width, height, area;
+// $form = $('#calculator');
+
+// $('form input[type="text"]').on('blur', function() {
+//   // The message only shows if user has entered number less than 10
+//   console.assert(this.value > 10, 'User entered less than 10');
+// });
+
+// $('#calculator').on('submit', function(e) { 
+//   e.preventDefault();
+//   console.log('Clicked submit...');
+
+//   width = $('#width').val();
+//   height = $('#height').val();
+//   area = width * height;
+//   // The message only shows if user has not entered a number
+//   console.assert($.isNumeric(area), 'User entered non-numeric value');
+
+//   $form.append('<p>' + area + '</p>');
+// });
+
+
 // 7. Writing table data
-var contacts = {                 // Store contact info in an object literal
-  "London": {
-    "Tel": "+44 (0)207 946 0128",
-    "Country": "UK"},
-  "Sydney": {
-    "Tel": "+61 (0)2 7010 1212",
-    "Country": "Australia"},
-  "New York": {
-    "Tel": "+1 (0)1 555 2104",
-    "Country": "USA"}
-};
+// var contacts = {                 // Store contact info in an object literal
+//   "London": {
+//     "Tel": "+44 (0)207 946 0128",
+//     "Country": "UK"},
+//   "Sydney": {
+//     "Tel": "+61 (0)2 7010 1212",
+//     "Country": "Australia"},
+//   "New York": {
+//     "Tel": "+1 (0)1 555 2104",
+//     "Country": "USA"}
+// };
 
-console.table(contacts);                   // Write data content to console
+// console.table(contacts);                   // Write data content to console
 
-var city, contactDetails;                  // Declare variables
-contactDetails = '';                       // Will hold details written to page
+// var city, contactDetails;                  // Declare variables
+// contactDetails = '';                       // Will hold details written to page
 
-$.each(contacts, function(city, contacts) {
-  contactDetails += city + ': ' + contacts.Tel + ':'+ contacts.Country +'<br />';
-});
-$('h2').after('<p>' + contactDetails + '</p>');
+// $.each(contacts, function(city, contacts) {
+//   contactDetails += city + ': ' + contacts.Tel + ':'+ contacts.Country +'<br />';
+// });
+// $('h2').after('<p>' + contactDetails + '</p>');
 
 
 // 6.Group Messages 
